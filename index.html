@@ -326,19 +326,81 @@
       gap: 6px;
     }
 
-    /* Responsive — stack on smaller screens */
+    /* ── Mobile ── */
     @media (max-width: 900px) {
-      html, body { overflow: auto; }
-      .page { height: auto; grid-template-rows: auto auto; }
+      html, body { overflow: auto; height: auto; }
+
+      .page {
+        height: auto;
+        min-height: 100vh;
+        grid-template-rows: auto auto;
+      }
+
+      nav {
+        padding: 16px 20px;
+      }
+
+      nav img {
+        height: 40px !important;
+      }
+
+      .nav-tag {
+        font-size: 10px;
+        padding: 4px 10px;
+        letter-spacing: 0.12em;
+      }
+
       .main {
         grid-template-columns: 1fr;
-        padding: 40px 28px 60px;
-        gap: 48px;
+        padding: 32px 20px 48px;
+        gap: 0;
       }
-      .left { padding-right: 0; }
-      .right { padding-left: 0; }
+
+      /* Show form first on mobile, image second */
+      .left  { order: 2; padding-right: 0; margin-top: 36px; }
+      .right { order: 1; padding-left: 0; }
       .vdivider { display: none; }
-      nav { padding: 18px 28px; }
+
+      /* Mockup image smaller on mobile */
+      .left img {
+        max-width: 320px !important;
+      }
+
+      .form-label { margin-bottom: 12px; }
+
+      .form-heading {
+        font-size: clamp(32px, 9vw, 48px) !important;
+        margin-bottom: 16px;
+        line-height: 1 !important;
+      }
+
+      /* Bigger touch targets */
+      input[type="text"],
+      input[type="email"] {
+        padding: 16px 18px 16px 44px;
+        font-size: 16px; /* prevents iOS zoom */
+      }
+
+      .cta {
+        padding: 18px 24px;
+        font-size: 15px;
+      }
+
+      .disclaimer { justify-content: center; }
+
+      /* Subtext */
+      .right p[style] {
+        font-size: 14px !important;
+        margin-bottom: 20px !important;
+      }
+    }
+
+    /* ── Small phones ── */
+    @media (max-width: 400px) {
+      nav { padding: 14px 16px; }
+      .main { padding: 24px 16px 40px; }
+      .form-heading { font-size: 28px !important; }
+      .cta { font-size: 13px; letter-spacing: 0.08em; }
     }
   </style>
 </head>
